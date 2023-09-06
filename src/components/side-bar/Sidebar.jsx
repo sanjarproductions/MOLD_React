@@ -1,15 +1,18 @@
 import React from 'react'
 import './Sidebar.scss'
-import {instance} from '../../api/axios'
-import { useState,useEffect } from 'react'
+import MainCategory from '../../routes/maincategory/MainCategory'
+import Subcategory from '../../routes/subcategory/Subcategory'
+import { instance } from '../../api/axios'
+import { Link } from 'react-router-dom'
+import { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 const Sidebar = () => {
-  const exceptions=["/about", "/contact"];
-const location = useLocation()
-console.log(location)
+  const exceptions = ["/about", "/contact", "/maincategory"];
+  const location = useLocation()
+  console.log(location)
 
-  const[categoryData,setCategoryData] = useState([])
-
+  const [categoryData, setCategoryData] = useState([])
+  // console.log(categoryData)
   useEffect(() => {
     instance("/category/category-nest")
       .then(response => setCategoryData(response.data))
@@ -28,14 +31,30 @@ console.log(location)
       </div>
       <ul>
         {
-          categoryData?.mainCategory_ru?.map(mainCategoryItem =>
-            <li>{mainCategoryItem}<svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><polyline points="9 18 15 12 9 6"></polyline></svg></li>
-          ) 
+          categoryData?.mainCategory_ru?.map((mainCategoryItem,index) =>
+            <li className='category-item'>
+              <Link to={`/maincategory/${mainCategoryItem}`} className='category-choice'>{mainCategoryItem}</Link>
+
+              <div className='sub-categories_div'>
+                <div className="flex__div">
+                  {
+                    categoryData.productSubCategories_ru[index].map(categoryItem =>
+                      <Link to={`/subcategory/${categoryItem}`} className='categoryItem'>{categoryItem}</Link>)
+                  }
+                </div>
+
+              </div>
+
+
+              <svg stroke="currentColor" fill="none" strokeWidth="2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><polyline points="9 18 15 12 9 6"></polyline></svg>
+
+            </li>
+          )
         }
       </ul>
     </div>
 
-    
+
   ) : <></>
 }
 

@@ -1,0 +1,35 @@
+.conctact-page{
+    padding-top: 40px;
+    h2{
+        font-size: 32px;
+        font-weight: 900;
+        padding-bottom: 20px;
+    }
+    iframe{
+        margin: 30px 0px;
+    }
+    svg{
+        font-size: 35px;
+        color: #4361ee;
+    }
+}
+.contact__box{
+    margin-top: 20px;
+    a{
+        font-size: 23px;
+        text-decoration: none;
+        color: #000;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        margin: 20px 0px;
+        font-size: 600;
+    }
+    p{
+        font-size: 23px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        margin: 20px 0px;
+    }
+}

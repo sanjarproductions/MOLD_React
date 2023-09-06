@@ -23,10 +23,10 @@ const Search = () => {
                             <div className="sub_navigation">
                                 <Sidebar />
 
-                                <NavLink to="/">Главная</NavLink>
-                                <NavLink to="/">Партнеры</NavLink>
-                                <NavLink to="/about">О нас</NavLink>
-                                <NavLink to="/contact">Контакт</NavLink>
+                                <NavLink className="route" to="/">Главная</NavLink>
+                                <NavLink className="route" to="/">Партнеры</NavLink>
+                                <NavLink className="route" to="/about">О нас</NavLink>
+                                <NavLink className="route" to="/contact">Контакт</NavLink>
                             </div>
                         </div>
 
