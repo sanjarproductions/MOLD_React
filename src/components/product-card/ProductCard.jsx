@@ -2,19 +2,22 @@ import React from 'react';
 import { DefaultButton } from '../../utils/Utils';
 import "./ProductCard.scss";
 import { Link } from 'react-router-dom';
-import ProductAbout from "../../routes/product_about/ProductAbout"
-
 const ProductCard = ({ productData }) => {
-  console.log(productData);
-
+  // console.log(productData);
   return (
     <div className='product-card'>
-      <img src={productData.productImages[0]} alt="" />
+      <Link text="Саватга қўшиш" to={`/productabout/${productData._id}`} ><img src={productData.productImages[0]} alt="" /></Link>
       <h3>{productData.productName_uz}</h3>
-      <p>{productData.productMainCategory_ru}</p>
-      <p>{productData.productSubCategory_ru}</p>
-      <p>{productData.productSizesAndQuantity[0].price}sum</p> <p>{productData.productSizesAndQuantity.length.price}sum</p>
-      <Link text="Саватга қўшиш" to={ProductAbout} >Hello</Link>
+      <div className="card__flex">
+        <p className='main-category__slider'>{productData.productMainCategory_ru}</p>
+        <p className='sub-category__slider'>{productData.productSubCategory_ru}</p>
+      </div>
+      <p className='price__slider'>
+        {`${productData?.productSizesAndQuantity[0].price} 
+          ${productData?.productSizesAndQuantity.length > 1 ? "- " +  productData?.productSizesAndQuantity
+          [productData?.productSizesAndQuantity.length -1].price : ""}`} </p>
+      {/* <p>{productData.productSizesAndQuantity.length.price}sum</p> */}
+      <DefaultButton text="Выбор"></DefaultButton>
     </div>
   )
 }
