@@ -16,7 +16,6 @@ const ProductCard = ({ productData }) => {
         {`${productData?.productSizesAndQuantity[0].price} 
           ${productData?.productSizesAndQuantity.length > 1 ? "- " +  productData?.productSizesAndQuantity
           [productData?.productSizesAndQuantity.length -1].price : ""}`} </p>
-      {/* <p>{productData.productSizesAndQuantity.length.price}sum</p> */}
       <DefaultButton text="Выбор"></DefaultButton>
     </div>
   )

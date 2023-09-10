@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { v4 as uuidv4 } from 'uuid';
 const Sidebar = () => {
-  const exceptions = ["/about", "/contact"];
+  const exceptions = ["/about", "/contact", "/maincategory"];
   const location = useLocation()
 
   const [categoryData, setCategoryData] = useState([])

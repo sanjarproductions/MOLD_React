@@ -6,6 +6,8 @@ import Home from "./routes/home/Home";
 import Search from "./components/search/Search";
 import Footer from "./components/footer/Footer";
 import ProductAbout from "./routes/product_about/ProductAbout"
+import MainCategory from "./routes/maincategory/MainCategory";
+import SubCategory from "./routes/subcategory/Subcategory";
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route  path="/productabout/:id" element={<ProductAbout/>}/>
+        <Route  path="/maincategory/:categoryname" element={<MainCategory/>}/>
+        <Route  path="/subcategory/:categoryname" element={<SubCategory/>}/>
       </Routes>
       <Footer />
     </>

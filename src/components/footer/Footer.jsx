@@ -2,7 +2,9 @@ import React from 'react'
 import "./Footer.scss"
 import { Container } from '../../utils/Utils'
 import logo from '../../img/logo-blue.svg'
-const Footer = () => {
+import { useTranslation } from 'react-i18next'
+const Footer = () => {    
+    const {t} = useTranslation()  
     return (
         <div className='footer-wrapper'>
             <Container>
@@ -13,8 +15,8 @@ const Footer = () => {
                             </svg>
                         </div>
                         <div className="text">
-                            <strong>Бизнинг манзил</strong>
-                            <p>Наманган вилояти , Давлатобод тумани , Дустлик Шох кучаси 109-уй</p>
+                            <strong>{t("footerAdress")}</strong>
+                            <p>{t("footerAdressP")}</p>
                         </div>
                     </div>
                     <div className="phone contact">
@@ -22,7 +24,7 @@ const Footer = () => {
                             <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16.57 22a2 2 0 0 0 1.43-.59l2.71-2.71a1 1 0 0 0 0-1.41l-4-4a1 1 0 0 0-1.41 0l-1.6 1.59a7.55 7.55 0 0 1-3-1.59 7.62 7.62 0 0 1-1.59-3l1.59-1.6a1 1 0 0 0 0-1.41l-4-4a1 1 0 0 0-1.41 0L2.59 6A2 2 0 0 0 2 7.43 15.28 15.28 0 0 0 6.3 17.7 15.28 15.28 0 0 0 16.57 22zM6 5.41 8.59 8 7.3 9.29a1 1 0 0 0-.3.91 10.12 10.12 0 0 0 2.3 4.5 10.08 10.08 0 0 0 4.5 2.3 1 1 0 0 0 .91-.27L16 15.41 18.59 18l-2 2a13.28 13.28 0 0 1-8.87-3.71A13.28 13.28 0 0 1 4 7.41zM20 11h2a8.81 8.81 0 0 0-9-9v2a6.77 6.77 0 0 1 7 7z"></path><path d="M13 8c2.1 0 3 .9 3 3h2c0-3.22-1.78-5-5-5z"></path></svg>
                         </div>
                         <div className="text">
-                            <strong>Биз билан боғланинг</strong>
+                            <strong>{t("footerPhone")}</strong>
                             <p>+998 91 186 00 85</p>
                         </div>
                     </div>
@@ -31,7 +33,7 @@ const Footer = () => {
                             <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H6c-1.103 0-2 .897-2 2v5h2V8l6.4 4.8a1.001 1.001 0 0 0 1.2 0L20 8v9h-8v2h8c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2zm-7 6.75L6.666 6h12.668L13 10.75z"></path><path d="M2 12h7v2H2zm2 3h6v2H4zm3 3h4v2H7z"></path></svg>
                         </div>
                         <div className="text">
-                            <strong>Электрон манзил</strong>
+                            <strong>{t("footeremail")}</strong>
                             <p>erkinjon.hodjaev@gmail.com</p>
                         </div>
                     </div>
@@ -39,9 +41,9 @@ const Footer = () => {
                 <div className="footer-info">
                     <div className='first'>
                         <img src={logo} alt="" />
-                        <p>Қолип тайёрлаш учун барча асбоблар, қолип бутловчи қисмлари ва аксессуарлари, қолип учун киёвий моддалар, силлиқлаш ва сайқаллаш асбоблари, абразив тошлар, CNC дастгохлари, Термопластавтоматлар ва хоказолар.</p>
+                        <p>{t("footerText")}</p>
                         <div className="social">
-                            <b>Бизни кузатиб боринг</b>
+                            <b>{t("footerFollowUs")}</b>
                             <div className="socila-media_icons">
                                 <div className="icon">
                                     <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 448 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M446.7 98.6l-67.6 318.8c-5.1 22.5-18.4 28.1-37.3 17.5l-103-75.9-49.7 47.8c-5.5 5.5-10.1 10.1-20.7 10.1l7.4-104.9 190.9-172.5c8.3-7.4-1.8-11.5-12.9-4.1L117.8 284 16.2 252.2c-22.1-6.9-22.5-22.1 4.6-32.7L418.2 66.4c18.4-6.9 34.5 4.1 28.5 32.2z"></path></svg>
@@ -57,18 +59,18 @@ const Footer = () => {
                         </div>
                     </div>
                     <div className='second'>
-                        <b>Фойдали ҳаволалар</b>
+                        <b>{t("footerLinks")}</b>
                         <div className="grid">
-                            <p>Бош сахифа</p>
-                            <p>Ҳамкорлар</p>
-                            <p>Биз ҳақимизда</p>
-                            <p>Алоқа</p>
+                            <p>{t("mainPageLink")}</p>
+                            <p>{t("partnersPageLink")}</p>
+                            <p>{t("aboutPageLink")}</p>
+                            <p>{t("contactPageLink")}</p>
                         </div>
                     </div>
                     <div className='third'>
-                        <b>Таклифлар учун</b>
+                        <b>{t("footerOffers")}</b>
                         <p>
-                            Доимий мижозларга қулайлик яратиш ва янги мижозларни жалб қилиш учун ушбу сайт яратилган бўлиб, унда сиз керакли қисмлар, бутловчи қисмлар, асбоблар, каталоглар ва махсулот маълумотларини топишингиз мумкин. Агар бирор нарсани топа олмасангиз - биз билан телефон ёки почта орқали боғланинг, биз сизга дархол ёрдам берамиз.
+                            {t("footerOffersP")}
                         </p>
                     </div>
                 </div>

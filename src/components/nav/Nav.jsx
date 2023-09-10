@@ -1,20 +1,28 @@
 import React from 'react'
 import './Nav.scss'
+import i18n from "../../language/i18next"
 import emailContact from '../../img/email.svg'
 import phoneContact from '../../img/phone_contact.svg'
 import ruLang from '../../img/ru.png'
 import uzLang from '../../img/uzb.svg'
 import { Container } from '../../utils/Utils'
+import { useTranslation } from 'react-i18next'
+// import {t} from "i18next"
 
 const Nav = () => {
+    const {t} = useTranslation()  
+    function changeLang(selectedLangCode) {
+        i18n.changeLanguage(selectedLangCode)
+    }
     return (
         <div>
             <nav>
                 <Container>
                     <div className="flex">
+                        {/* <h2>{t("greeting")}</h2> */}
                         <div className="lang">
-                            <img src={uzLang} alt="" className='lang_uz_img' />
-                            <img src={ruLang} alt="" className='lang_ru_img' />
+                            <img src={uzLang} alt="" className='lang_uz_img' onClick={() => changeLang("uz")}/>
+                            <img src={ruLang} alt="" className='lang_ru_img' onClick={() => changeLang("ru")}/>
                         </div>
                         <a href="tel: +998911860085" className="phone contact-method">
                             <img src={phoneContact} alt="" />+998 91 186 00 85</a>
