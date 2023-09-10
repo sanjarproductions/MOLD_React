@@ -3,9 +3,13 @@ import "./Footer.scss"
 import { Container } from '../../utils/Utils'
 import logo from '../../img/logo-blue.svg'
 import { useTranslation } from 'react-i18next'
+import { useLocation } from 'react-router-dom'
+
 const Footer = () => {    
+    const exceptions = ["/login"];
+    const location = useLocation()
     const {t} = useTranslation()  
-    return (
+    return !exceptions.includes(location.pathname) ? (
         <div className='footer-wrapper'>
             <Container>
                 <div className="footer-contact">
@@ -77,7 +81,7 @@ const Footer = () => {
                 <div className="footer-contact"></div>
             </Container>
         </div>
-    )
+    ): <></>
 }
 
 export default Footer

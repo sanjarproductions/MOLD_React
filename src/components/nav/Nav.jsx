@@ -7,14 +7,17 @@ import ruLang from '../../img/ru.png'
 import uzLang from '../../img/uzb.svg'
 import { Container } from '../../utils/Utils'
 import { useTranslation } from 'react-i18next'
-// import {t} from "i18next"
+import { useLocation } from 'react-router-dom'
 
 const Nav = () => {
+    const exceptions = ["/login"];
+    const location = useLocation()
+
     const {t} = useTranslation()  
     function changeLang(selectedLangCode) {
         i18n.changeLanguage(selectedLangCode)
     }
-    return (
+    return !exceptions.includes(location.pathname) ? (
         <div>
             <nav>
                 <Container>
@@ -32,7 +35,7 @@ const Nav = () => {
                 </Container>
             </nav>
         </div>
-    )
+    ) : <></>
 }
 
 export default Nav

@@ -9,18 +9,16 @@ import { FiSearch } from "react-icons/fi";
 import { instance } from '../../api/axios'
 import { v4 as uuidv4 } from 'uuid';
 import { useTranslation } from 'react-i18next'
+import { useLocation } from 'react-router-dom'
 
 const Search = () => {
-    const {t} = useTranslation()  
-    // function changeLang(selectedLangCode) {
-    //     i18n.changeLanguage(selectedLangCode)
-    // }
+    const exceptions = ["/login"];
+    const location = useLocation()
+    const { t } = useTranslation()
+
     const [inputSearch, setInputSearch] = useState("") //UseSate
     const [searchResults, setSearchResults] = useState([]) //UseSate
-    // console.log(inputSearch);
 
-    // console.log(searchResults)
-    // console.log(setSearchResults)
     useEffect(() => {
         instance(`/product/search/${inputSearch}`)
             .then(response => setSearchResults(response.data))
@@ -34,7 +32,7 @@ const Search = () => {
 
     // console.log(searchResults)
 
-    return (
+    return !exceptions.includes(location.pathname) ? (
         <div>
             <div className="search_wrapper">
                 <Container>
@@ -97,7 +95,7 @@ const Search = () => {
                 </Container>
             </div>
         </div>
-    )
+    ) : <></>
 }
 
 export default Search

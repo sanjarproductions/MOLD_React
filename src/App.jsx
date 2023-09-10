@@ -8,6 +8,7 @@ import Footer from "./components/footer/Footer";
 import ProductAbout from "./routes/product_about/ProductAbout"
 import MainCategory from "./routes/maincategory/MainCategory";
 import SubCategory from "./routes/subcategory/Subcategory";
+import Login from "./routes/login/Login";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route  path="/productabout/:id" element={<ProductAbout/>}/>
         <Route  path="/maincategory/:categoryname" element={<MainCategory/>}/>
         <Route  path="/subcategory/:categoryname" element={<SubCategory/>}/>
+        <Route  path="/login" element={<Login/>}/>
       </Routes>
       <Footer />
     </>
