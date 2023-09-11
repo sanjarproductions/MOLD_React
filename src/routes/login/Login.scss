@@ -46,3 +46,40 @@
         }
     }
 }
+
+.loginImage {
+    animation: loginImage 3s infinite;
+}
+
+.papssword-wrapper{
+    display: flex;
+    align-items: center;
+    border: 1px solid #000;
+    gap: 0 10px;
+    background: #fff;
+    border: 1px solid #000;
+    border-radius: 10px;
+    padding: 0 10px 0px 0px;
+    svg{
+        font-size: 30px;
+    }
+    input{
+        border: none;
+        width: 100%;
+
+    }
+}
+
+@keyframes loginImage {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-50px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
