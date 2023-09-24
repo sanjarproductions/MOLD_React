@@ -1,0 +1,37 @@
+.cart-wrapper {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    display: flex;
+    align-items: flex-start;
+
+    button {
+        color: #007aff;
+        background: #fff;
+        padding: 20px 30px;
+        box-shadow: 0 10px 50px rgba(0, 0, 0, .2);
+        border-radius: 30px 0 0 30px;
+        border-right: none;
+        border: none;
+        svg {
+            font-size: 50px;
+        }
+    }
+}
+
+// .cart-main-btn {
+//     position: fixed;
+//     // top: 0;
+//     // right: 0;
+// }
+
+.no-cart {
+    transform: translateX(-100%);
+}
+
+.cart {
+    width: 500px;
+    height: 100vh;
+    background: red;
+}

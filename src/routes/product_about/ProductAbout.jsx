@@ -24,9 +24,12 @@ const ProductAbout = () => {
   console.log(productData)
 
   function plusProduct() {
-    if (productData.productSizesAndQuantity[selectVariant].quantity > itemCounter) {
+    if (+productData?.singleProduct[0].productSizesAndQuantity[selectVariant].quantity > itemCounter) {
       setItemCounter(itemCounter + 1)
     }
+    // if (productData?.productSizesAndQuantity[selectVariant].quantity > itemCounter) {
+    //   setItemCounter(itemCounter + 1)
+    // }
   }
 
   function minusProduct() {
@@ -68,7 +71,7 @@ const ProductAbout = () => {
                     setItemCounter(1)
                   }}>
                     {
-                      productData?.productSizesAndQuantity.map((q, ind) =>
+                      productData?.productSizesAndQuantity?.map((q, ind) =>
                         <option value={ind} >{q.size}</option>
                       )
                     }
@@ -76,7 +79,6 @@ const ProductAbout = () => {
                 </div>
 
               </div>
-
               <p className='main__price'>{productData?.productSizesAndQuantity[0].price} CУМ</p>
               <div className='product__description-p'>
                 {
@@ -93,6 +95,7 @@ const ProductAbout = () => {
                 </div>
                 <p>{itemCounter * +productData.productSizesAndQuantity[selectVariant].price}</p>
               </div>
+              <button>Add to Card</button>
             </div>
           </div>
 
@@ -103,8 +106,3 @@ const ProductAbout = () => {
 }
 
 export default ProductAbout
-
-
-// .then(response => {setProductViewData(response.data?.singleProduct?.at(0))})
-// console.log(productDataUrl.id);
-// console.log(setProductViewData)

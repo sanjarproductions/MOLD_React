@@ -9,12 +9,14 @@ import ProductAbout from "./routes/product_about/ProductAbout"
 import MainCategory from "./routes/maincategory/MainCategory";
 import SubCategory from "./routes/subcategory/Subcategory";
 import Login from "./routes/login/Login";
+import Cart from "./components/cart/Cart";
 
 function App() {
   return (
     <>
       <Nav />
       <Search />
+      <Cart/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
