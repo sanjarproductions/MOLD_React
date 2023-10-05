@@ -3,7 +3,7 @@ const initalState = {
 };
 
 const langReducer = (state = initalState, action) => {
-  console.log(action);
+  // console.log(action);
   switch (action.type) {
     case "CHANGE_LANGUAGE":
       return {

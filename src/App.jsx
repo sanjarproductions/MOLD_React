@@ -10,6 +10,9 @@ import MainCategory from "./routes/maincategory/MainCategory";
 import SubCategory from "./routes/subcategory/Subcategory";
 import Login from "./routes/login/Login";
 import Cart from "./components/cart/Cart";
+import Admin from "./routes/admin/Admin";
+import Private from "./routes/private/Private";
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   return (
@@ -21,12 +24,17 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/" element={<Private/>}> 
+          <Route path="/admin" element={<Admin/>}/>
+        </Route>
         <Route  path="/productabout/:id" element={<ProductAbout/>}/>
         <Route  path="/maincategory/:categoryname" element={<MainCategory/>}/>
         <Route  path="/subcategory/:categoryname" element={<SubCategory/>}/>
         <Route  path="/login" element={<Login/>}/>
       </Routes>
       <Footer />
+
+      <ToastContainer />
     </>
   );
 }

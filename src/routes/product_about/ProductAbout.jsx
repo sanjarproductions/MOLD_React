@@ -7,8 +7,10 @@ import { Container } from '../../utils/Utils';
 import { v4 as uuidv4 } from 'uuid';
 import "./ProductAbout.scss"
 import { FiChevronRight } from "react-icons/fi";
+import { useDispatch } from 'react-redux';
 
 const ProductAbout = () => {
+  const dispatch = useDispatch()
   const [selectVariant, setSelectVariant] = useState(0)
   const [itemCounter, setItemCounter] = useState(0)
   const [activeImage, setactiveImage] = useState(0)
@@ -24,7 +26,7 @@ const ProductAbout = () => {
   console.log(productData)
 
   function plusProduct() {
-    if (+productData?.singleProduct[0].productSizesAndQuantity[selectVariant].quantity > itemCounter) {
+    if (+productData?.singleProduct[0].productSizesAndQuantity?.[selectVariant].quantity > itemCounter) {
       setItemCounter(itemCounter + 1)
     }
     // if (productData?.productSizesAndQuantity[selectVariant].quantity > itemCounter) {
@@ -38,6 +40,14 @@ const ProductAbout = () => {
     }
   }
 
+  function addToCard(addProduct) {
+    const {productSizesAndQuantity, ...rest} = addProduct
+    rest.selectedType = productSizesAndQuantity[selectVariant]
+    rest.count = itemCounter
+    rest.totalPrice = 
+      productData?.productSizesAndQuantity?.[selectVariant].price * itemCounter
+    dispatch({item : rest, type: "@ADD_TO_CARD"})
+  }
 
   return (
     <div>
@@ -93,9 +103,9 @@ const ProductAbout = () => {
                   <span>{itemCounter}</span>
                   <button onClick={minusProduct}>-</button>
                 </div>
-                <p>{itemCounter * +productData.productSizesAndQuantity[selectVariant].price}</p>
+                <p>{itemCounter * +productData?.productSizesAndQuantity?.[selectVariant]?.price}</p>
               </div>
-              <button>Add to Card</button>
+              <button onClick={() => addToCard(productData)}>Add to Card</button>
             </div>
           </div>
 

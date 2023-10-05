@@ -5,7 +5,12 @@ import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { v4 as uuidv4 } from 'uuid';
+import { useSelector } from 'react-redux';
+
 const Sidebar = () => {
+
+  const currentLang = useSelector(state => state.language.lang)
+  console.log(currentLang)
   const exceptions = ["/about", "/contact", "/maincategory"];
   const location = useLocation()
 

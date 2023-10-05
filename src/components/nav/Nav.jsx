@@ -12,7 +12,7 @@ import { useDispatch } from "react-redux";
 
 const Nav = () => {
   const dispatch = useDispatch();
-  const exceptions = ["/login"];
+  const exceptions = ["/login", "/admin"];
   const location = useLocation();
 
   const { t } = useTranslation();

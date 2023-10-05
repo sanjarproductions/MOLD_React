@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next'
 import { useLocation } from 'react-router-dom'
 
 const Footer = () => {    
-    const exceptions = ["/login"];
+    const exceptions = ["/login", "/admin"];
     const location = useLocation()
     const {t} = useTranslation()  
     return !exceptions.includes(location.pathname) ? (
